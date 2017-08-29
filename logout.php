@@ -3,14 +3,14 @@
 /**
  * @author switch
  * @copyright 2015
- * ½«ÓÃ»§×¢ÏúµÄ½Å±¾
+ * å°†ç”¨æˆ·æ³¨é”€çš„è„šæœ¬
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ğÊÇPHP»á¼ì²é¸ÃÎÄ¼şÊÇ·ñÒÑ¾­±»°üº¬¹ı,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
     require_once('bookmark_fns.php');
     session_start();
     $old_user = $_SESSION['valid_user'];
     
-    //×¢Ïú»á»°±äÁ¿
+    //æ³¨é”€ä¼šè¯å˜é‡
     unset($_SESSION['valid_user']);
     $result_dest = session_destroy();
     
@@ -18,12 +18,12 @@
     
     if(!empty($old_user))
     {
-        if($result_dest)    //µÇ³ö³É¹¦
+        if($result_dest)    //ç™»å‡ºæˆåŠŸ
         {
             echo 'Logged out.<br />';
             do_html_URL('login.php','Login');
         }
-        else    //²»³É¹¦
+        else    //ä¸æˆåŠŸ
         {
             echo 'Could not log you out.<br />';
         }

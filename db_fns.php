@@ -3,9 +3,9 @@
 /**
  * @author switch
  * @copyright 2015
- * Á¬½ÓÊı¾İ¿âµÄº¯Êı
+ * è¿æ¥æ•°æ®åº“çš„å‡½æ•°
  */
-    function db_connect()   //Á¬½ÓÊı¾İ¿âº¯Êı
+    function db_connect()   //è¿æ¥æ•°æ®åº“å‡½æ•°
     {
         $result = new mysqli('localhost', 'bm_user', 'password', 'bookmarks');
         if (!$result) 

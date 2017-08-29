@@ -3,38 +3,38 @@
 /**
  * @author switch
  * @copyright 2015
- * ÓÃ»§Éí·İÑéÖ¤µÄº¯Êı
+ * ç”¨æˆ·èº«ä»½éªŒè¯çš„å‡½æ•°
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ğÊÇPHP»á¼ì²é¸ÃÎÄ¼şÊÇ·ñÒÑ¾­±»°üº¬¹ı,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
     require_once('db_fns.php');
     
-    function register($username,$email,$passwd) //×¢²áº¯Êı
+    function register($username,$email,$passwd) //æ³¨å†Œå‡½æ•°
     {
-        $conn = db_connect();   //Á¬½ÓÊı¾İ¿â
+        $conn = db_connect();   //è¿æ¥æ•°æ®åº“
         
-        $result = $conn ->query("select * from user where username='". $username ."'"); //¼ì²é¸ÃÓÃ»§ÃûÊÇ·ñ×¢²á
+        $result = $conn ->query("select * from user where username='". $username ."'"); //æ£€æŸ¥è¯¥ç”¨æˆ·åæ˜¯å¦æ³¨å†Œ
         
-        if($result ->num_rows > 0)  //ÒÑ×¢²á£¬Å×³öÒì³£
+        if($result ->num_rows > 0)  //å·²æ³¨å†Œï¼ŒæŠ›å‡ºå¼‚å¸¸
         {
             throw new exception('The username is taken - go back and choose another one.');
         }
-        //Î´×¢²á£¬Ôò½«¸ÄÓÃ»§²åÈëµ½Êı¾İ¿âÖĞ
+        //æœªæ³¨å†Œï¼Œåˆ™å°†æ”¹ç”¨æˆ·æ’å…¥åˆ°æ•°æ®åº“ä¸­
         $result = $conn ->query("insert into user values('". $username ."',sha1('". $passwd ."'),'". $email ."')");
         
-        if(!$result)    //ÎŞ·¨×¢²á£¬Å×³öÒì³£
+        if(!$result)    //æ— æ³•æ³¨å†Œï¼ŒæŠ›å‡ºå¼‚å¸¸
         {
             throw new exception('Could not register you in database - please try again later.');
         }
         return true;
     }
 
-    function login($username,$passwd)   //µÇÂ¼º¯Êı
+    function login($username,$passwd)   //ç™»å½•å‡½æ•°
     {
-        $conn = db_connect();   //Á¬½ÓÊı¾İ¿â
+        $conn = db_connect();   //è¿æ¥æ•°æ®åº“
         
         $result = $conn ->query("select * from user where username='". $username ."' and passwd = sha1('". $passwd ."')");
         
-        if(!$result)    //ÎŞ·¨µÇÂ¼£¬Å×³öÒì³£
+        if(!$result)    //æ— æ³•ç™»å½•ï¼ŒæŠ›å‡ºå¼‚å¸¸
             throw new exception('Could not log you in.');
         
         if($result ->num_rows > 0)
@@ -43,7 +43,7 @@
             throw new exception('Could not log you in.');
     }
     
-    function check_valid_user() //¼ì²éÓÃ»§µÇÂ¼ÊÇ·ñÓĞĞ§
+    function check_valid_user() //æ£€æŸ¥ç”¨æˆ·ç™»å½•æ˜¯å¦æœ‰æ•ˆ
     {
         if(isset($_SESSION['valid_user']))
             echo "Logged in as ". $_SESSION['valid_user'] .".<br />";
@@ -57,7 +57,7 @@
         }
     }
     
-    function change_password($username,$old_password,$new_password) //Í¨¹ı¾ÉÃÜÂë¸ÄÃÜÂë
+    function change_password($username,$old_password,$new_password) //é€šè¿‡æ—§å¯†ç æ”¹å¯†ç 
     {
         login($username,$old_password);
         $conn = db_connect();
@@ -68,63 +68,63 @@
             return true;
     }
     
-    function get_random_word($min_length,$max_length)   //´Ó×ÖµäÀïËæ»ú»ñÈ¡Ò»¸ö³¤¶ÈÔÚ[$min_length,$max_length]µÄ´Ê
+    function get_random_word($min_length,$max_length)   //ä»å­—å…¸é‡Œéšæœºè·å–ä¸€ä¸ªé•¿åº¦åœ¨[$min_length,$max_length]çš„è¯
     {
-        $word = ''; //Éú³ÉÒ»¸öËæ»ú´Ê
+        $word = ''; //ç”Ÿæˆä¸€ä¸ªéšæœºè¯
         $dictionary = 'wordlist.txt';
         $fp = @fopen($dictionary,'r');
         if(!$fp)
             return false;
         $size = filesize($dictionary);
         
-        $rand_location = rand(0,$size); //ÕÒµ½ÔÚ×ÖµäÖĞÒ»¸öËæ»úÎ»ÖÃ
+        $rand_location = rand(0,$size); //æ‰¾åˆ°åœ¨å­—å…¸ä¸­ä¸€ä¸ªéšæœºä½ç½®
         fseek($fp,$rand_location);
         
         while((strlen($word) < $min_length) || (strlen($word) > $max_length) || (strstr($word,"'")))
         {
             if(feof($fp))
-                fseek($fp,0);   //Èç¹ûµ½ÁËÎÄ¼şÄ©Î²£¬Ö¸ÏòÎÄ¼şÍ·²¿¡¢
-            $word = fgets($fp,80);  //Ìø¹ıµÚÒ»¸öÕÒµ½µÄ´Ê
-            $word = fgets($fp,80);  //µÚ¶ş¸ö
+                fseek($fp,0);   //å¦‚æœåˆ°äº†æ–‡ä»¶æœ«å°¾ï¼ŒæŒ‡å‘æ–‡ä»¶å¤´éƒ¨ã€
+            $word = fgets($fp,80);  //è·³è¿‡ç¬¬ä¸€ä¸ªæ‰¾åˆ°çš„è¯
+            $word = fgets($fp,80);  //ç¬¬äºŒä¸ª
         }
-        $word = trim($word);    //È¥³ı¿ªÍ·ºÍÄ©Î²¿Õ¸ñºÍ'\n'
-        return $word;   //·µ»Ø¸Ã´Ê
+        $word = trim($word);    //å»é™¤å¼€å¤´å’Œæœ«å°¾ç©ºæ ¼å’Œ'\n'
+        return $word;   //è¿”å›è¯¥è¯
     }
     
-    function reset_password($username)  //ÖØÖÃÃÜÂë
+    function reset_password($username)  //é‡ç½®å¯†ç 
     {
-        //»ñÈ¡[6,13]Î»µÄËæ»ú´Ê£¬×÷ÎªĞÂÃÜÂë
+        //è·å–[6,13]ä½çš„éšæœºè¯ï¼Œä½œä¸ºæ–°å¯†ç 
         $new_password = get_random_word(6,13);
         
-        if($new_password == false)  //Èç¹û»ñÈ¡Ê§°Ü£¬Å×³öÒì³£
+        if($new_password == false)  //å¦‚æœè·å–å¤±è´¥ï¼ŒæŠ›å‡ºå¼‚å¸¸
             throw new exception('Could not generate new password.');
         
-        $rand_number = rand(0,999); //»ñÈ¡Ò»¸öÔÚ[0,999]µÄËæ»úÊı×Ö
-        $new_password .= $rand_number;  //ÔÚ$new_passwordºó¸½¼Ó$rand_number
+        $rand_number = rand(0,999); //è·å–ä¸€ä¸ªåœ¨[0,999]çš„éšæœºæ•°å­—
+        $new_password .= $rand_number;  //åœ¨$new_passwordåé™„åŠ $rand_number
         
-        $conn = db_connect();   //Á¬½ÓÊı¾İ¿â
+        $conn = db_connect();   //è¿æ¥æ•°æ®åº“
         $result = $conn ->query("update user set passwd = sha1('". $new_password ."') where username = '". $username ."'");
         
-        if(!$result)    //ÎŞ¸Ä±ä£¬Å×³öÒì³£
+        if(!$result)    //æ— æ”¹å˜ï¼ŒæŠ›å‡ºå¼‚å¸¸
             throw new exception('Could not change password.');
-        else    //ÖØÖÃ³É¹¦
+        else    //é‡ç½®æˆåŠŸ
             return $new_password;
     }
     
-    function notify_password($username,$passwd) //Í¨ÖªÓÃ»§£¬ÃÜÂëÒÑ¾­¸ü¸Ä
+    function notify_password($username,$passwd) //é€šçŸ¥ç”¨æˆ·ï¼Œå¯†ç å·²ç»æ›´æ”¹
     {
         
-        $conn = db_connect();   //Á¬½ÓÊı¾İ¿â
+        $conn = db_connect();   //è¿æ¥æ•°æ®åº“
         $result = $conn ->query("select email from user where username ='". $username ."'");
         
-        if(!$result)    //²éÑ¯²»µ½£¬Å×³öÒì³£
+        if(!$result)    //æŸ¥è¯¢ä¸åˆ°ï¼ŒæŠ›å‡ºå¼‚å¸¸
             throw new exception('Could not find email address.');
-        else if($result ->num_rows == 0)    //ÓÃ»§Ãû²»ÔÚÊı¾İ¿âÖĞ
+        else if($result ->num_rows == 0)    //ç”¨æˆ·åä¸åœ¨æ•°æ®åº“ä¸­
             throw new exception('Could not find email address.');
         else
         {
             $row = $result ->fetch_object();
-            //ÒòÎªÃ»ÓĞÉèÖÃÓÊ¼ş·şÎñÆ÷£¬ÕâÀï¾ÍÖ±½ÓÊä³öÃÜÂëÁË
+            //å› ä¸ºæ²¡æœ‰è®¾ç½®é‚®ä»¶æœåŠ¡å™¨ï¼Œè¿™é‡Œå°±ç›´æ¥è¾“å‡ºå¯†ç äº†
             echo $passwd;
             $email = $row ->email;
             $from = "From: support@phpbookmark \r\n";

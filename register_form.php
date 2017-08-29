@@ -3,13 +3,13 @@
 /**
  * @author switch
  * @copyright 2015
- * ÏµÍ³ÖÐÓÃ»§×¢²á±íµ¥
+ * ç³»ç»Ÿä¸­ç”¨æˆ·æ³¨å†Œè¡¨å•
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ðÊÇPHP»á¼ì²é¸ÃÎÄ¼þÊÇ·ñÒÑ¾­±»°üº¬¹ý,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æžœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
     require_once('bookmark_fns.php');
-    do_html_header('User Registration');    //HTML±êÌâ
+    do_html_header('User Registration');    //HTMLæ ‡é¢˜
     
-    display_registeration_form();   //Êä³ö×¢²á±íµ¥
+    display_registeration_form();   //è¾“å‡ºæ³¨å†Œè¡¨å•
     
-    do_html_footer();   //HTMLÒ³½Å
+    do_html_footer();   //HTMLé¡µè„š
 ?>

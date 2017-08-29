@@ -3,9 +3,9 @@
 /**
  * @author switch
  * @copyright 2015
- * 以HTML形式格式化输出的函数
+ * 浠TML褰㈠紡鏍煎紡鍖栬緭鍑虹殑鍑芥暟
  */
-    function do_html_header($title) //打印HTML标题
+    function do_html_header($title) //鎵撳嵃HTML鏍囬
     {
         ?>
         <html>
@@ -29,7 +29,7 @@
         }
     }
             
-    function do_html_footer()   //打印HTML页尾
+    function do_html_footer()   //鎵撳嵃HTML椤靛熬
     {
         ?>
         </body>
@@ -37,21 +37,21 @@
         <?php
     }
             
-    function do_html_heading($heading)  //打印标题
+    function do_html_heading($heading)  //鎵撳嵃鏍囬
     {
         ?>
         <h2><?php echo $heading; ?></h2>
         <?php
     }
             
-    function do_html_URL($url,$name)    //输出URL
+    function do_html_URL($url,$name)    //杈撳嚭URL
     {
         ?>
         <br /><a href="<?php echo $url;?>"><?php echo $name;?></a><br />
         <?php
     }
             
-    function display_site_info()    //输出站点信息
+    function display_site_info()    //杈撳嚭绔欑偣淇℃伅
     {
         ?>
         <ul>
@@ -62,7 +62,7 @@
         <?php
     }
                       
-    function display_login_form()    //输出登录信息
+    function display_login_form()    //杈撳嚭鐧诲綍淇℃伅
     {
         ?>
         <p><a href="register_form.php">Not a member?</a></p>
@@ -90,7 +90,7 @@
         <?php
     }
             
-    function display_registeration_form()   //输出注册表单
+    function display_registeration_form()   //杈撳嚭娉ㄥ唽琛ㄥ崟
     {
         ?>
         <form method="post" action="register_new.php">
@@ -119,7 +119,7 @@
         <?php
     }
             
-    function display_user_urls($url_array)  //输出用户的书签和URL
+    function display_user_urls($url_array)  //杈撳嚭鐢ㄦ埛鐨勪功绛惧拰URL
     {
         global $bm_table;
         $bm_table = true;
@@ -141,7 +141,7 @@
                             $color = "#ffffff";
                         else
                             $color = "#cccccc";
-                        //数据库传回数据时，要把一些预定义的字符转换为 HTML 实体
+                        //鏁版嵁搴撲紶鍥炴暟鎹椂锛岃鎶婁竴浜涢瀹氫箟鐨勫瓧绗﹁浆鎹负 HTML 瀹炰綋
                         echo "<tr bgcolor=\"". $color ."\"><td><a href=\"". $url ."\">". htmlspecialchars($url) ."</a></td><td><input type=\"checkbox\" name=\"del_me[]\" value=\"". $url ."\"/></td></tr>";
                     }
                 }
@@ -155,14 +155,14 @@
         <?php
     }
             
-    function display_user_menu()    //输出菜单选项
+    function display_user_menu()    //杈撳嚭鑿滃崟閫夐」
     {
         ?>
         <hr />
         <a href="member.php">Home</a>&nbsp;|&nbsp;
         <a href="add_bm_form.php">Add BM</a> &nbsp;|&nbsp;
         <?php
-            //如果书签在这个页面，提供删除选项
+            //濡傛灉涔︾鍦ㄨ繖涓〉闈紝鎻愪緵鍒犻櫎閫夐」
             global $bm_table;
             if($bm_table == true)
             {
@@ -181,7 +181,7 @@
         <?php
     }
             
-    function display_add_bm_form()  //输出添加书签表单
+    function display_add_bm_form()  //杈撳嚭娣诲姞涔︾琛ㄥ崟
     {
         ?>
         <form name="bm_table" action="add_bms.php" method="post">
@@ -198,7 +198,7 @@
         <?php
     }
             
-    function display_password_form()    //输出更改密码表单
+    function display_password_form()    //杈撳嚭鏇存敼瀵嗙爜琛ㄥ崟
     {
         ?>
         <br />
@@ -225,7 +225,7 @@
         <?php
     }
             
-    function display_forgot_form()    //输出重置密码表单
+    function display_forgot_form()    //杈撳嚭閲嶇疆瀵嗙爜琛ㄥ崟
     {
         ?>
         <br />
@@ -244,7 +244,7 @@
         <?php
     }
     
-    function display_recommended_urls($url_array)   //输出推荐表单
+    function display_recommended_urls($url_array)   //杈撳嚭鎺ㄨ崘琛ㄥ崟
     {
         ?>
         <br />

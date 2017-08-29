@@ -3,14 +3,14 @@
 /**
  * @author switch
  * @copyright 2015
- * ĞŞ¸ÄÊı¾İ¿âÖĞÓÃ»§ÃÜÂëµÄ±íµ¥
+ * ä¿®æ”¹æ•°æ®åº“ä¸­ç”¨æˆ·å¯†ç çš„è¡¨å•
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ğÊÇPHP»á¼ì²é¸ÃÎÄ¼şÊÇ·ñÒÑ¾­±»°üº¬¹ı,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
     require_once('bookmark_fns.php');
     session_start();
     do_html_header('Changing password');
     
-    //´´½¨±äÁ¿
+    //åˆ›å»ºå˜é‡
     $old_passwd = $_POST['old_passwd'];
     $new_passwd = $_POST['new_passwd'];
     $new_passwd2 = $_POST['new_passwd2'];
@@ -29,7 +29,7 @@
             throw new exception('New password must be between 6 and 16 characters. Try again.');
         }
         
-        //³¢ÊÔĞŞ¸Ä
+        //å°è¯•ä¿®æ”¹
         change_password($_SESSION['valid_user'],$old_passwd,$new_passwd);
         echo 'Password changed.';
     }

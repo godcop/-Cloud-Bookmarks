@@ -3,9 +3,9 @@
 /**
  * @author switch
  * @copyright 2015
- * Ìí¼ÓÊéÇ©µÄ±íµ¥
+ * æ·»åŠ ä¹¦ç­¾çš„è¡¨å•
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ðÊÇPHP»á¼ì²é¸ÃÎÄ¼þÊÇ·ñÒÑ¾­±»°üº¬¹ý,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æžœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
     require_once('bookmark_fns.php');
     session_start();
 

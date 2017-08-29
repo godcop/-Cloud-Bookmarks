@@ -3,13 +3,13 @@
 /**
  * @author switch
  * @copyright 2015
- * ÓÃ»§µÄÖ÷Ò³Ãæ£¬°üº¬¸ÃÓÃ»§ËùÓĞµÄµ±Ç°ÊéÇ©
+ * ç”¨æˆ·çš„ä¸»é¡µé¢ï¼ŒåŒ…å«è¯¥ç”¨æˆ·æ‰€æœ‰çš„å½“å‰ä¹¦ç­¾
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ğÊÇPHP»á¼ì²é¸ÃÎÄ¼şÊÇ·ñÒÑ¾­±»°üº¬¹ı,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
     require_once('bookmark_fns.php');
     session_start();
     
-    //´´½¨±äÁ¿
+    //åˆ›å»ºå˜é‡
     $username = @$_POST['username'];
     $passwd = @$_POST['passwd'];
     
@@ -18,12 +18,12 @@
         try
         {
             login($username,$passwd);
-            //Èç¹û¸ÃÓÃ»§ÔÚÊı¾İ¿âÖĞ£¬Ôò×¢²á»á»°±äÁ¿
+            //å¦‚æœè¯¥ç”¨æˆ·åœ¨æ•°æ®åº“ä¸­ï¼Œåˆ™æ³¨å†Œä¼šè¯å˜é‡
             $_SESSION['valid_user'] = $username;
         }
         catch(exception $e)
         {
-            //µÇÂ¼²»³É¹¦
+            //ç™»å½•ä¸æˆåŠŸ
             do_html_header('Problem:');
             echo 'You could not be logged in. You must be logged in to view this page.';
             do_html_URL('login.php','Login');
@@ -35,10 +35,10 @@
     do_html_header('Home');
     check_valid_user();
     
-    //»ñÈ¡ÓÃ»§µÄÊéÇ©
+    //è·å–ç”¨æˆ·çš„ä¹¦ç­¾
     if($url_array = get_user_urls($_SESSION['valid_user']))
         display_user_urls($url_array);
-    //»ñÈ¡ÓÃ»§²Ëµ¥Ñ¡Ïî
+    //è·å–ç”¨æˆ·èœå•é€‰é¡¹
     display_user_menu();
 
     do_html_footer();

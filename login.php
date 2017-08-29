@@ -3,15 +3,15 @@
 /**
  * @author switch
  * @copyright 2015
- * °üº¬ÏµÍ³µÇÂ¼±íµ¥µÄÒ³Ãæ
+ * åŒ…å«ç³»ç»Ÿç™»å½•è¡¨å•çš„é¡µé¢
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ðÊÇPHP»á¼ì²é¸ÃÎÄ¼þÊÇ·ñÒÑ¾­±»°üº¬¹ý,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
-    require_once('bookmark_fns.php');   //Ó¦ÓÃ³ÌÐòµÄ°üº¬ÎÄ¼þ¼¯ºÏ
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æžœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
+    require_once('bookmark_fns.php');   //åº”ç”¨ç¨‹åºçš„åŒ…å«æ–‡ä»¶é›†åˆ
     
-    do_html_header(''); //HTML±êÌâ
+    do_html_header(''); //HTMLæ ‡é¢˜
     
-    display_site_info();//HTMLÕ¾µãÐÅÏ¢
-    display_login_form();//HTMLµÇÂ¼ÐÅÏ¢
+    display_site_info();//HTMLç«™ç‚¹ä¿¡æ¯
+    display_login_form();//HTMLç™»å½•ä¿¡æ¯
     
-    do_html_footer();   //HTMLÒ³½Å
+    do_html_footer();   //HTMLé¡µè„š
 ?>

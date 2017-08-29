@@ -3,27 +3,27 @@
 /**
  * @author switch
  * @copyright 2015
- * Ìí¼ÓÊéÇ©µÄ±íµ¥
+ * æ·»åŠ ä¹¦ç­¾çš„è¡¨å•
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ğÊÇPHP»á¼ì²é¸ÃÎÄ¼şÊÇ·ñÒÑ¾­±»°üº¬¹ı,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
     require_once('bookmark_fns.php');
     session_start();
     
-    //´´½¨±äÁ¿
+    //åˆ›å»ºå˜é‡
     $new_url = $_POST['new_url'];
     
     do_html_header('Adding bookmarks');
     
     try
     {
-        check_valid_user(); //¼ì²éÓÃ»§ÓĞĞ§ĞÔ
-        if(!filled_out($new_url))   //¼ì²é±íµ¥ÊÇ·ñÌîĞ´
+        check_valid_user(); //æ£€æŸ¥ç”¨æˆ·æœ‰æ•ˆæ€§
+        if(!filled_out($new_url))   //æ£€æŸ¥è¡¨å•æ˜¯å¦å¡«å†™
             throw new exception('Form not completely filled out.');
         if(strstr($new_url,'http://') === false)
             $new_url = 'http://'. $new_url;
-        if(!(@fopen($new_url,'r'))) //¿ÉÒÔµ÷ÓÃfopen()º¯Êı´ò¿ªURL£¬Èç¹ûÄÜ´ò¿ªÕâ¸öÎÄ¼ş£¬Ôò¼Ù¶¨URLÊÇÓĞĞ§µÄ
+        if(!(@fopen($new_url,'r'))) //å¯ä»¥è°ƒç”¨fopen()å‡½æ•°æ‰“å¼€URLï¼Œå¦‚æœèƒ½æ‰“å¼€è¿™ä¸ªæ–‡ä»¶ï¼Œåˆ™å‡å®šURLæ˜¯æœ‰æ•ˆçš„
             throw new exception('Not a valid URL.');
-        add_bm($new_url);   //½«URLÌí¼Óµ½Êı¾İ¿âÖĞ
+        add_bm($new_url);   //å°†URLæ·»åŠ åˆ°æ•°æ®åº“ä¸­
         echo 'Bookmark added.';
         if($url_array = get_user_urls($_SESSION['valid_user']))
             display_user_urls($url_array);

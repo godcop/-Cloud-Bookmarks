@@ -3,58 +3,58 @@
 /**
  * @author switch
  * @copyright 2015
- * Ôö¼ÓºÍÉ¾³ıÊéÇ©µÄº¯Êı
+ * å¢åŠ å’Œåˆ é™¤ä¹¦ç­¾çš„å‡½æ•°
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ğÊÇPHP»á¼ì²é¸ÃÎÄ¼şÊÇ·ñÒÑ¾­±»°üº¬¹ı,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
     require_once('db_fns.php');
     
-    function get_user_urls($username)   //ÌáÈ¡ÓÃ»§ËùÓĞµÄURL
+    function get_user_urls($username)   //æå–ç”¨æˆ·æ‰€æœ‰çš„URL
     {
         $conn = db_connect();
         $result = $conn ->query("select bm_URL from bookmark where username ='". $username ."'");
         if(!$result)
             return false;
-        //´´½¨URLsÊı×é
+        //åˆ›å»ºURLsæ•°ç»„
         $url_array = array();
         for($count = 1; $row = $result ->fetch_row(); ++$count)
             $url_array[$count] = $row[0];
         return $url_array;
     }
 
-    function add_bm($new_url)   //Ìí¼ÓĞÂµÄÊéÇ©µ½Êı¾İ¿â
+    function add_bm($new_url)   //æ·»åŠ æ–°çš„ä¹¦ç­¾åˆ°æ•°æ®åº“
     {
         echo "Attempting to add ". htmlspecialchars($new_url) ."<br />";
         $valid_user = $_SESSION['valid_user'];
         
-        $conn = db_connect();   //Á¬½ÓÊı¾İ¿â
+        $conn = db_connect();   //è¿æ¥æ•°æ®åº“
         
         $result = $conn ->query("select * from bookmark where username ='$valid_user' and bm_URL ='". $new_url ."'");
         if($result && ($result ->num_rows > 0))
             throw new exception('Bookmark already exists.');
         
-        //Ìí¼ÓÊéÇ©
+        //æ·»åŠ ä¹¦ç­¾
         if(!$conn ->query("insert into bookmark values('". $valid_user ."','". $new_url ."')"))
             throw new exception('Bookmark could not be inserted.');
         return true;
     } 
     
-    function delete_bm($user,$url)   //É¾³ıÊéÇ©
+    function delete_bm($user,$url)   //åˆ é™¤ä¹¦ç­¾
     {
-        $conn = db_connect();   //Á¬½ÓÊı¾İ¿â
+        $conn = db_connect();   //è¿æ¥æ•°æ®åº“
         
-        //É¾³ıÊéÇ©
+        //åˆ é™¤ä¹¦ç­¾
         if(!$conn ->query("delete from bookmark where username = '". $user ."' and bm_URL = '". $url ."'"))
             throw new exception('Bookmark could not be deleted.');
         return true;
     }
     
-    function recommend_urls($valid_user, $popularity = 1) //ÍÆ¼öÊéÇ©
+    function recommend_urls($valid_user, $popularity = 1) //æ¨èä¹¦ç­¾
     {
-        $conn = db_connect();   //Á¬½ÓÊı¾İ¿â
+        $conn = db_connect();   //è¿æ¥æ•°æ®åº“
         
-        //ÕÒÆäËûÓÃ»§ÖĞÓëÄãÓĞÏàÍ¬ÊéÇ©µÄÈËÖ®ºó£¬ËÑË÷ËûµÄÆäËûÊéÇ©
-        //Èç¹ûÄÇ¸öÊéÇ©±»Á½¸öÓÃ»§ÒÔÉÏÓµÓĞ
-        //ÄÇÃ´¾Í½«Õâ¸öÊéÇ©ÍÆ¼ö¸øÄã
+        //æ‰¾å…¶ä»–ç”¨æˆ·ä¸­ä¸ä½ æœ‰ç›¸åŒä¹¦ç­¾çš„äººä¹‹åï¼Œæœç´¢ä»–çš„å…¶ä»–ä¹¦ç­¾
+        //å¦‚æœé‚£ä¸ªä¹¦ç­¾è¢«ä¸¤ä¸ªç”¨æˆ·ä»¥ä¸Šæ‹¥æœ‰
+        //é‚£ä¹ˆå°±å°†è¿™ä¸ªä¹¦ç­¾æ¨èç»™ä½ 
         
         $query = "select bm_URL from bookmark 
                 where username in (select distinct(b2.username) 

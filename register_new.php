@@ -3,57 +3,57 @@
 /**
  * @author switch
  * @copyright 2015
- * ´¦ÀíĞÂ×¢²áĞÅÏ¢µÄ½Å±¾
+ * å¤„ç†æ–°æ³¨å†Œä¿¡æ¯çš„è„šæœ¬
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ğÊÇPHP»á¼ì²é¸ÃÎÄ¼şÊÇ·ñÒÑ¾­±»°üº¬¹ı,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
     require_once('bookmark_fns.php');
     
-    //´´½¨±äÁ¿
+    //åˆ›å»ºå˜é‡
     $email = $_POST['email'];
     $username = $_POST['username'];
     $passwd = $_POST['passwd'];
     $passwd2 = $_POST['passwd2'];
 
-    //¿ªÆô»á»°
+    //å¼€å¯ä¼šè¯
     session_start();
     
     try
     {
-        //¼ì²é±íµ¥ÊÇ·ñÌîĞ´Âú
+        //æ£€æŸ¥è¡¨å•æ˜¯å¦å¡«å†™æ»¡
         if(!filled_out($_POST))
         {
             throw new exception('You have not filled the form out correctly - please go back and try again.');
         }
         
-        //¼ì²éÓÊ¼şµØÖ·ÊÇ·ñÓĞĞ§
+        //æ£€æŸ¥é‚®ä»¶åœ°å€æ˜¯å¦æœ‰æ•ˆ
         if(!valid_email($email))
         {
             throw new exception('That is not a vald email address. Please go back try again.');
         }
         
-        //¼ì²éÁ½´ÎÊäÈëÃÜÂëÊÇ·ñÏàÍ¬
+        //æ£€æŸ¥ä¸¤æ¬¡è¾“å…¥å¯†ç æ˜¯å¦ç›¸åŒ
         if($passwd != $passwd2)
         {
             throw new exception('The passwords you entered do not match - please go back try again.');
         }
         
-        //¼ì²éÃÜÂë³¤¶ÈÊÇ·ñºÏ¸ñ
+        //æ£€æŸ¥å¯†ç é•¿åº¦æ˜¯å¦åˆæ ¼
         if((strlen($passwd) < 6) || (strlen($passwd) > 16))
         {
             throw new exception('Your password must be between 6 and 16 characters Please go back and try again.');
         }
         
-        //³¢ÊÔ×¢²á
+        //å°è¯•æ³¨å†Œ
         register($username,$email,$passwd);
         
-        //×¢²á»á»°±äÁ¿
+        //æ³¨å†Œä¼šè¯å˜é‡
         $_SESSION['valid_user'] = $username;
         
-        //Ìá¹©³ÉÔ±Ò³ÃæÁ´½Ó
-        do_html_header('Registration successful');  //HTML±êÌâ
-        echo 'Your registration was successful.Go to the members page to start setting up your bookmarks!'; //Êä³öURL
-        do_html_URL('member.php','Go to members page'); //HTMLÒ³½Å
-        do_html_footer();   //HTMLÒ³½Å
+        //æä¾›æˆå‘˜é¡µé¢é“¾æ¥
+        do_html_header('Registration successful');  //HTMLæ ‡é¢˜
+        echo 'Your registration was successful.Go to the members page to start setting up your bookmarks!'; //è¾“å‡ºURL
+        do_html_URL('member.php','Go to members page'); //HTMLé¡µè„š
+        do_html_footer();   //HTMLé¡µè„š
     }
     catch(exception $e)
     {

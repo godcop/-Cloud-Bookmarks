@@ -3,13 +3,13 @@
 /**
  * @author switch
  * @copyright 2015
- * ���û�����ǩ�б���ɾ��ѡ����ǩ�Ľű���
+ * 从用户的书签列表中删除选定书签的脚本呢
  */
-    //require_once����require�����ȫ��ͬ,Ψһ������PHP������ļ��Ƿ��Ѿ���������,������򲻻��ٴΰ�����
+    //require_once语句和require语句完全相同,唯一区别是PHP会检查该文件是否已经被包含过,如果是则不会再次包含。
     require_once('bookmark_fns.php');
     session_start();
     
-    //��������
+    //创建变量
     $del_me = @$_POST['del_me'];
     $valid_user = $_SESSION['valid_user'];
     

@@ -3,11 +3,11 @@
 /**
  * @author switch
  * @copyright 2015
- * È·ÈÏÓÃ»§ÊäÈëÊı¾İÓĞĞ§µÄº¯Êı
+ * ç¡®è®¤ç”¨æˆ·è¾“å…¥æ•°æ®æœ‰æ•ˆçš„å‡½æ•°
  */
-    function filled_out($form_vars) //¼ì²é±íµ¥ÊÇ·ñÌîĞ´Âú
+    function filled_out($form_vars) //æ£€æŸ¥è¡¨å•æ˜¯å¦å¡«å†™æ»¡
     {
-        //µ±´«Èë²ÎÊı·ÇÊı×éÊ±¿ÉÒÔÍ¨¹ıÅĞ¶Ï»òÕßÊÇÇ¿ÖÆÀàĞÍ×ª»»À´½â¾ö
+        //å½“ä¼ å…¥å‚æ•°éæ•°ç»„æ—¶å¯ä»¥é€šè¿‡åˆ¤æ–­æˆ–è€…æ˜¯å¼ºåˆ¶ç±»å‹è½¬æ¢æ¥è§£å†³
         foreach ((array)$form_vars as $key => $value) 
         {
             if ((!isset($key)) || ($value == '')) 
@@ -18,9 +18,9 @@
         return true;
     }
     
-    function valid_email($address)  //¼ì²éÓÊ¼şµØÖ·ÊÇ·ñÓĞĞ§
+    function valid_email($address)  //æ£€æŸ¥é‚®ä»¶åœ°å€æ˜¯å¦æœ‰æ•ˆ
     {
-        //ÕıÔò±í´ïÊ½Æ¥Åä
+        //æ­£åˆ™è¡¨è¾¾å¼åŒ¹é…
         if (preg_match('/^[a-zA-Z0-9_\.\-]+@[a-zA-Z0-9\-]+\.[a-zA-Z0-9\-\.]+$/i', $address)) 
         {
             return true;

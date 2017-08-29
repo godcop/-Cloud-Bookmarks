@@ -3,12 +3,12 @@
 /**
  * @author switch
  * @copyright 2015
- * Ó¦ÓÃ³ÌÐòµÄ°üº¬ÎÄ¼þ¼¯ºÏ
+ * åº”ç”¨ç¨‹åºçš„åŒ…å«æ–‡ä»¶é›†åˆ
  */
-    //require_onceÓï¾äºÍrequireÓï¾äÍêÈ«ÏàÍ¬,Î¨Ò»Çø±ðÊÇPHP»á¼ì²é¸ÃÎÄ¼þÊÇ·ñÒÑ¾­±»°üº¬¹ý,Èç¹ûÊÇÔò²»»áÔÙ´Î°üº¬¡£
-    require_once('data_valid_fns.php'); //È·ÈÏÓÃ»§ÊäÈëÊý¾ÝÓÐÐ§µÄº¯Êý
-    require_once('db_fns.php'); // Á¬½ÓÊý¾Ý¿âµÄº¯Êý
-    require_once('user_auth_fns.php');  //ÓÃ»§Éí·ÝÑéÖ¤µÄº¯Êý
-    require_once('output_fns.php'); //ÒÔHTMLÐÎÊ½¸ñÊ½»¯Êä³öµÄº¯Êý
-    require_once('url_fns.php');    //Ôö¼ÓºÍÉ¾³ýÊéÇ©µÄº¯Êý
+    //require_onceè¯­å¥å’Œrequireè¯­å¥å®Œå…¨ç›¸åŒ,å”¯ä¸€åŒºåˆ«æ˜¯PHPä¼šæ£€æŸ¥è¯¥æ–‡ä»¶æ˜¯å¦å·²ç»è¢«åŒ…å«è¿‡,å¦‚æžœæ˜¯åˆ™ä¸ä¼šå†æ¬¡åŒ…å«ã€‚
+    require_once('data_valid_fns.php'); //ç¡®è®¤ç”¨æˆ·è¾“å…¥æ•°æ®æœ‰æ•ˆçš„å‡½æ•°
+    require_once('db_fns.php'); // è¿žæŽ¥æ•°æ®åº“çš„å‡½æ•°
+    require_once('user_auth_fns.php');  //ç”¨æˆ·èº«ä»½éªŒè¯çš„å‡½æ•°
+    require_once('output_fns.php'); //ä»¥HTMLå½¢å¼æ ¼å¼åŒ–è¾“å‡ºçš„å‡½æ•°
+    require_once('url_fns.php');    //å¢žåŠ å’Œåˆ é™¤ä¹¦ç­¾çš„å‡½æ•°
 ?>
